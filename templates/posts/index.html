@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} -posts
+{% endblock %}
+
+{% block content %}
+
+
+<div class="mt-8 p-2 flex justify-start md:justify-center">
+    
+    
+    <div class="w-full md:max-w-3xl">
+        <div>
+        
+       
+       
+        <div class="border border-2 p-4 border-amber-100  bg-amber-50 mb-8">
+            
+          <div class="text-2xl font-semibold mb-2 text-center">Pertanyaan</div>
+            {% for post in posts %}
+            <div class="mb-3">
+              <div class="text-lg font-semibold mb-2">Soal no. {{ forloop.counter }} :</div>
+              <div class="ml-4">
+                {% if post.image_question %}
+                  <img src="{{ post.image_question.url }}" alt="" class=" max-h-[400px]">
+      
+                {% endif %}
+                <div class="text-lg mt-2">{{post.question|safe}}</div>
+                {% if request.user.is_authenticated and request.user.is_superuser %}
+                <div class="text-xl font-semibold my-2">Jawaban:</div>
+                {% if post.image_answer %}
+                  <img src="{{ post.image_answer.url }}" alt="" class=" max-h-[400px]">    
+                {% endif %}
+                <div class="text-lg mt-2">{{post.answer|safe}}</div>
+                {% endif %}
+                
+
+              </div>
+
+            </div>
+            {% endfor %}
+
+           
+        </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+{% endblock content %}

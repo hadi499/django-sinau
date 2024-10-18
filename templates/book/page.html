@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - book detail
+{% endblock %}
+
+{% block content %}
+
+
+<div class="mt-8 p-2 flex justify-start md:justify-center">
+    
+    
+    <div class="w-full md:max-w-3xl">
+        <div>
+        <div id="top" class="mb-12 flex justify-end">
+            <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'book_list' %}">Book Lists</a>
+           
+          
+        </div>
+        
+       
+        <h1 class="text-center text-xl font-semibold mb-8"> {{ book.title }}</h1>
+        <h1 class="text-xl font-semibold mb-2">Daftar Isi</h1>
+        <div class="border border-2 p-4 border-blue-400 bg-amber-50 mb-8">
+            
+            {% for page in pages %}
+            <div class="mb-3">
+              <a class="hover:text-blue-700 text-lg text-slate-700" href="{% url 'page_detail' page.id %}"><span class="font-semibold">{{ forloop.counter }}</span>. {{page.excerpt}}</a>      
+
+            </div>
+            {% endfor %}
+
+           
+        </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+{% endblock content %}

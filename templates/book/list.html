@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - book list
+{% endblock %}
+
+{% block content %}
+
+
+<div class="mt-8 p-2 flex justify-start md:justify-center">
+
+    <div class="w-full md:w-[600px]">
+
+      
+        <div class="border-slate-500 border-2  shadow-lg">
+            <div class="bg-blue-100 border-b-2 border-slate-500">
+                <h1 class="text-center text-2xl font-semibold py-2" >Books</h1>
+
+            </div>
+    
+            
+            <div class="p-4 bg-amber-50">
+                {% for book in books %}
+                    <div class="mb-4 text-xl font-semibold hover:text-blue-700">
+                        <a href="{% url 'book_detail' book.id %}"><span>{{forloop.counter }}</span>. {{ book.title }}</a>
+                    </div>
+                
+                {% endfor %}
+    
+            </div>
+        
+        
+          
+
+    </div>
+  
+    
+   
+
+
+    </div>
+
+    {% endblock %}

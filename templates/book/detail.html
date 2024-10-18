@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% block title %}
+    {{ block.super }} - page detail
+{% endblock %}
+
+{% block content %}
+
+
+<div class="mt-8 p-2 flex justify-start md:justify-center">
+    
+    
+    <div class="w-full md:max-w-6xl">
+        <div>
+        <div id="top" class="mb-12 flex justify-end">
+            <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'book_detail' page.book.id %}">page list</a>
+           
+          
+        </div>
+        
+        <div class="text-center mb-8"> <span class="text-xl font-semibold">{{ page.book.title }}</span> - <span class="text-lg  italic">{{page.excerpt}}</span> </div>
+        <div class="border border-2 p-4 border-blue-400 bg-amber-50 mb-8">
+           
+            <div class="mb-3" x-data="{ showIndonesian: false }">
+                {% if page.image %}
+                <img src="{{ page.image.url }}" alt="{{ page.title }}" class=" max-h-[500px]">
+    
+                {% endif %}
+                <div class="text-xl leading-relaxed ">
+                    {{ page.english|safe }}
+                    
+                    {% if page.indonesian|clean_whitespace %}
+                        <p class="hover:cursor-pointer text-sm text-blue-600 mb-0" @click="showIndonesian = !showIndonesian">Terjemahkan</p>
+                    {% endif %}
+                </div>
+                
+                <div x-show="showIndonesian" class="text-lg italic leading-relaxed">
+                  
+                        {{ page.indonesian|safe }}
+               
+                </div>
+                
+
+
+            </div>
+
+       
+      
+
+           
+        </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+{% endblock content %}
