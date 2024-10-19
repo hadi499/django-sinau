@@ -13,12 +13,7 @@ class Quiz(models.Model):
 
   def __str__(self):
     return f'{self.name} - {self.topic}' 
-  
-  # def get_questions(self):
-  #       questions = list(self.question_set.all())
-  #       if len(questions) < self.number_of_questions:
-  #           return questions  # Kembalikan semua pertanyaan jika jumlahnya kurang dari 5
-  #       return random.sample(questions, self.number_of_questions)
+     
   def get_questions(self):
         questions = list(self.question_set.all())
         if len(questions) < self.number_of_questions:

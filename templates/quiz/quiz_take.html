@@ -8,16 +8,19 @@
 
 <div class="flex justify-center">
 
-  <div class="w-[800px]" >
-    <div class=" mb-4 flex justify-end items-center space-x-1 mt-6">
-      <span class="text-lg font-semibold">Time Remaining: </span>
-      <span id="timer" class="text-lg font-bold text-red-600">{{ quiz.time }}</span> <span class="text-sm font-semibold">secs</span>
+  <div class="w-[800px] relative" >
+    <div class="fixed top-12 right-6 border border-red-500 shadow-lg p-1 rounded-sm flex items-baseline justify-end items-center space-x-1 mt-6">
+      <span id="timer" class="text-lg font-bold text-red-600">
+        {{ quiz.time }}
+      </span>
+      <span class="text-sm font-semibold">dtk</span>
+     
     
     </div>
 
     <form class="p-2" id="quiz-form" method="POST" action="{% url 'quiz_submit' quiz.pk %}">
       {% csrf_token %}
-      <h1 class="text-2xl text-center font-semibold my-4">{{ quiz.name }}</h1>
+      <h1 class="text-2xl text-center font-semibold mt-10 mb-4">{{ quiz.name }}</h1>
       <div class="flex justify-evenly gap-2 flex-wrap">
         {% for question in questions %}
           <div class=" border shadow mb-4 w-[250px]">
