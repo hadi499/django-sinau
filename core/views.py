@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib import messages
 
 
+
 class CustomLoginView(LoginView):
     template_name = 'users/login.html'
 
@@ -20,3 +21,8 @@ def home(request):
 @login_required
 def scores(request):
   return render(request, 'scores.html')
+
+
+@login_required
+def all_scores(request):  
+  return render(request, 'all_scores.html')

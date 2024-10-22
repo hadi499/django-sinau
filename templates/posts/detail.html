@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - detail post
+{% endblock %}
+
+{% block content %}
+
+
+<div class="mt-8 p-2 flex justify-start md:justify-center">
+
+
+  <div class="w-full md:max-w-3xl">
+      <div>    
+        <div id="top" class="mb-12 flex justify-end">
+          <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'posts' %}">post lists</a>
+         
+        
+        </div> 
+      
+      
+        <div class="border border-2 p-4 border-amber-100  bg-amber-50 mb-8">
+            
+        
+        
+            <div class="mb-3 flex flex-col gap-2">           
+              
+              
+              {% if post.image_satu %}
+                  <img src="{{ post.image_satu.url }}" alt="" class=" max-h-[400px]">
+      
+              {% endif %}
+             
+                <div>{{post.content_satu|safe}}</div>
+
+              {% if post.image_dua %}
+                  <img src="{{ post.image_dua.url }}" alt="" class=" max-h-[400px]">
+      
+              {% endif %}
+              {% if post.content_dua %}
+              <div>{{post.content_dua|safe}}</div>
+              
+              {% endif %}
+              {% if post.image_tiga %}
+                  <img src="{{ post.image_tiga.url }}" alt="" class=" max-h-[400px]">
+      
+              {% endif %}
+              {% if post.content_tiga %}
+              <div>{{post.content_tiga|safe}}</div>              
+              {% endif %}
+
+            </div>
+            
+
+          
+        </div>
+
+      </div>
+
+  </div>
+
+
+</div>
+
+
+
+{% endblock content %}

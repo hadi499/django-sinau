@@ -169,3 +169,7 @@ def quiz_result(request, pk):
                 'passed': result.score >= quiz.required_score_to_pass,
                 # Anda mungkin perlu menambahkan lebih banyak data di sini
             })
+        
+def result_quiz_all(request):
+    all_results = Result.objects.all().order_by('-id')
+    return render(request, 'quiz/all_quiz_results.html', {'all_results': all_results})

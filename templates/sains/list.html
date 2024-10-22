@@ -3,12 +3,14 @@
 
 <div class="flex justify-center mt-8">
 
-  <div class="w-[400px]">
+  <div class="w-full p-2 md:w-[400px]">
 
     {% for tes in tes_all %}
-    <div class="mb-8">
-      <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'sains_detail' tes.pk %}" >{{ tes.name }} - {{ tes.topic }}</a>
-    </div>
+
+    <a  href="{% url 'sains_detail' tes.pk %}" >
+      <div class="border border-blue-600 text-sm font-semibold px-2 py-2 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white w-full text-center mb-3">{{ tes.name }} - {{ tes.topic }}</div>
+    </a>
+   
     {% endfor %}
 
 

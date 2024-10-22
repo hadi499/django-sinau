@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+
 {% load custom_filters %}
+
 {% block title %}
-    {{ block.super }} - page detail
+    {{ block.super }} - all page
 {% endblock %}
 
 {% block content %}
@@ -13,14 +15,14 @@
     <div class="w-full md:max-w-6xl">
         <div>
         <div id="top" class="mb-12 flex justify-end">
-            <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'book_detail' page.book.id %}">page lists</a>
+            <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'book_detail' book.id %}">page lists</a>
            
           
         </div>
         
-        <div class="text-center mb-8"> <span class="text-xl font-semibold">{{ page.book.title }}</span> - <span class="text-lg  italic">{{page.excerpt}}</span> </div>
+        <h1 class="text-center text-2xl font-semibold mb-8"> {{ book.title }}</h1>
         <div class="border border-2 p-4 border-blue-400 bg-amber-50 mb-8">
-           
+            {% for page in pages %}
             <div class="mb-3" x-data="{ showIndonesian: false }">
                 {% if page.image %}
                 <img src="{{ page.image.url }}" alt="{{ page.title }}" class=" max-h-[500px]">
@@ -35,22 +37,31 @@
                 </div>
                 
                 <div x-show="showIndonesian" class="text-lg italic leading-relaxed">
-                  
-                        {{ page.indonesian|safe }}
-               
-                </div>
+                    {{ page.indonesian|safe }}
+                </div> 
+
                 
 
 
             </div>
+            {% endfor %}
 
-       
-      
+            <div class="mt-6 flex justify-end">
+                <a class="px-2 py-1 border rounded-sm border-blue-400 bg-blue-100 " href="#top">Kembali ke Atas</a>
 
-           
+            </div>
         </div>
 
     </div>
+
+                
+         
+
+   
+      
+      
+
+  
 
   </div>
 
@@ -60,3 +71,9 @@
 
 
 {% endblock content %}
+
+
+
+
+
+

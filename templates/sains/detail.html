@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="flex justify-center mt-8">
+<div class="flex justify-center mt-8 p-2">
 
-  <div class="w-[300px] p-3 border">
+  <div class="w-full md:w-[300px] p-3 border shadow-md">
 
     <div class="text-lg font-semibold">
 
@@ -17,7 +17,7 @@
 
     <div class="mt-4">
 
-      <a href="{% url 'sains_take' tes.pk %}" class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white">Start Quiz</a>
+      <a href="{% url 'sains_take' tes.pk %}" class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white">Start Tes</a>
 
     </div>
 

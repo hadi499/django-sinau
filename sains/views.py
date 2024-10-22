@@ -80,3 +80,8 @@ def scores_sains(request):
   user_id = request.user.id  
   results = ResultSains.objects.filter(user_id=user_id).order_by('-score')   
   return render(request, 'sains/results.html', {'results': results})
+
+
+def result_sains_all(request):
+    all_results = ResultSains.objects.all().order_by('-id')
+    return render(request, 'sains/all_sains_results.html', {'all_results': all_results})

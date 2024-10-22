@@ -1,50 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{ block.super }} -posts
+    {{ block.super }} - posts
 {% endblock %}
 
 {% block content %}
 
 
-<div class="mt-8 p-2 flex justify-start md:justify-center">
-    
-    
-    <div class="w-full md:max-w-3xl">
-        <div>
-        
-       
-       
-        <div class="border border-2 p-4 border-amber-100  bg-amber-50 mb-8">
+<div class="flex justify-center mt-8">
+
+  <div class="w-full p-2 md:w-[400px]">
             
-          <div class="text-2xl font-semibold mb-2 text-center">Pertanyaan</div>
-            {% for post in posts %}
-            <div class="mb-3">
-              <div class="text-lg font-semibold mb-2">Soal no. {{ forloop.counter }} :</div>
-              <div class="ml-4">
-                {% if post.image_question %}
-                  <img src="{{ post.image_question.url }}" alt="" class=" max-h-[400px]">
-      
-                {% endif %}
-                <div class="text-lg mt-2">{{post.question|safe}}</div>
-                {% if request.user.is_authenticated and request.user.is_superuser %}
-                <div class="text-xl font-semibold my-2">Jawaban:</div>
-                {% if post.image_answer %}
-                  <img src="{{ post.image_answer.url }}" alt="" class=" max-h-[400px]">    
-                {% endif %}
-                <div class="text-lg mt-2">{{post.answer|safe}}</div>
-                {% endif %}
-                
-
-              </div>
-
-            </div>
+         
+            {% for post in posts %}        
+              <a  href="{% url "post_detail" post.id %}" >
+                <div class="border border-indigo-600 text-sm font-semibold px-2 py-2 rounded-sm text-indigo-600 hover:bg-indigo-600 hover:text-white w-full text-center mb-3">{{post.title}}</div>
+              </a>
             {% endfor %}
-
-           
-        </div>
-
-    </div>
+      
 
   </div>
 

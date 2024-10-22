@@ -1,9 +1,9 @@
 from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
-from .models import Post
+from .models import Pertanyaan
 import os
 
-@receiver(pre_delete, sender=Post)
+@receiver(pre_delete, sender=Pertanyaan)
 def delete_posts_image(sender, instance, **kwargs):
     if instance.image_question:
         if os.path.isfile(instance.image_question.path):
@@ -15,14 +15,14 @@ def delete_posts_image(sender, instance, **kwargs):
 
 
 
-@receiver(pre_save, sender=Post)
+@receiver(pre_save, sender=Pertanyaan)
 def delete_old_image_on_update(sender, instance, **kwargs):
     if not instance.pk:
         return False
     
     try:
-        old_instance = Post.objects.get(pk=instance.pk)
-    except Post.DoesNotExist:
+        old_instance = Pertanyaan.objects.get(pk=instance.pk)
+    except Pertanyaan.DoesNotExist:
         return False
 
     if old_instance.image_question != instance.image_question:

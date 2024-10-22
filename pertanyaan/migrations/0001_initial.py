@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name='Pertanyaan',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image_question', models.ImageField(blank=True, null=True, upload_to='posts/')),
+                ('image_question', models.ImageField(blank=True, null=True, upload_to='pertanyaan/')),
                 ('question', django_ckeditor_5.fields.CKEditor5Field(blank=True, null=True)),
-                ('image_answer', models.ImageField(blank=True, null=True, upload_to='posts/')),
+                ('image_answer', models.ImageField(blank=True, null=True, upload_to='pertanyaan/')),
                 ('answer', django_ckeditor_5.fields.CKEditor5Field(blank=True, null=True)),
             ],
         ),

@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'book',
     'quiz',
     'sains',
-    'posts'
+    'pertanyaan',
+    'blog',
+    
     
 ]
 

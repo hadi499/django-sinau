@@ -21,6 +21,7 @@
             ">
             Admin
             </a>
+          
             {% endif %}
 
             <a href="{% url 'scores' %}" 
@@ -28,10 +29,10 @@
             {% endif %}">
             Scores
             </a>
-            <a href="{% url 'posts' %}" 
-            class="{% if request.path == '/posts/' %}text-blue-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium {%else%}text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium 
+            <a href="{% url 'pertanyaan' %}" 
+            class="{% if request.path == '/pertanyaan/' %}text-blue-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium {%else%}text-gray-800 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium 
             {% endif %}">
-            Posts
+            Pertanyaan
             </a>
 
            
@@ -83,7 +84,11 @@
 
         {% if request.user.is_authenticated and request.user.is_superuser %}      
         <a href="/admin" class="block  hover:bg-blue-200 px-3 py-2 rounded-md text-base font-medium ">Admin</a>
+
         {% endif %}
+
+        <a href="{% url "scores" %}" class="block hover:bg-blue-200 px-3 py-2 rounded-md text-base font-medium ">Scores</a>
+        <a href="{% url "logout" %}" class="block hover:bg-blue-200 px-3 py-2 rounded-md text-base font-medium ">Logout</a>
         
         {% else %}
         <a href="{% url "login" %}" class="block  hover:bg-blue-200 px-3 py-2 rounded-md text-base font-medium ">Login</a>
