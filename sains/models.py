@@ -6,6 +6,7 @@ class Tes(models.Model):
     topic = models.CharField(max_length=120)
     number_of_questions = models.IntegerField()
     time = models.IntegerField(help_text="time in second")
+    command = models.CharField(max_length=255, default='isilah pertanyaan dibawah ini')
     required_score_to_pass = models.FloatField()
 
     def get_questions(self):
@@ -26,8 +27,11 @@ class QuestionSains(models.Model):
     option_c = models.CharField(max_length=255)
     correct_answer = models.CharField(max_length=255)
 
+    class Meta:
+      verbose_name_plural = "Sains Questions"
+
     def __str__(self):
-        return self.title
+        return f'{self.tes.name} - {self.title}' 
     
 class ResultSains(models.Model):
   tes = models.ForeignKey(Tes, on_delete=models.CASCADE)
