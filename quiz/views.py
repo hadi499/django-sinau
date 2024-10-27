@@ -77,7 +77,7 @@ def quiz_take(request, pk):
 @login_required
 def scores_quiz(request):  
   user_id = request.user.id  
-  results = Result.objects.filter(user_id=user_id).order_by('-score')   
+  results = Result.objects.filter(user_id=user_id).order_by('-created')   
   return render(request, 'quiz/results.html', {'results': results})
 
 
