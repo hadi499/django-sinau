@@ -23,7 +23,7 @@
         <h1 class="text-center text-2xl font-semibold mb-8"> {{ book.title }}</h1>
         <div class="border border-2 p-4 border-blue-400 bg-amber-50 mb-8">
             {% for page in pages %}
-            <div class="mb-3" x-data="{ showIndonesian: false }">
+            <div class="mb-3 text-lg" x-data="{ showIndonesian: false }">
                 {% if page.image %}
                 <img src="{{ page.image.url }}" alt="{{ page.title }}" class=" max-h-[500px]">
     

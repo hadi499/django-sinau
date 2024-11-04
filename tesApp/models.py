@@ -10,7 +10,7 @@ class Tes(models.Model):
     required_score_to_pass = models.FloatField()
 
     def get_questions(self):
-      questions = self.questionsains_set.all()     
+      questions = self.questiontes_set.all()     
       return questions
 
     def __str__(self):
@@ -19,7 +19,7 @@ class Tes(models.Model):
     class Meta:
       verbose_name_plural = "Tes"
 
-class QuestionSains(models.Model):
+class QuestionTes(models.Model):
     tes = models.ForeignKey(Tes, on_delete=models.CASCADE)
     title = models.TextField()
     option_a = models.CharField(max_length=255)
@@ -28,19 +28,19 @@ class QuestionSains(models.Model):
     correct_answer = models.CharField(max_length=255)
 
     class Meta:
-      verbose_name_plural = "Sains Questions"
+      verbose_name_plural = "Tes Questions"
 
     def __str__(self):
         return f'{self.tes.name} - {self.title}' 
     
-class ResultSains(models.Model):
+class ResultTes(models.Model):
   tes = models.ForeignKey(Tes, on_delete=models.CASCADE)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   score = models.FloatField()
   created = models.DateTimeField(auto_now_add=True)
 
   class Meta:
-      verbose_name_plural = "Sains Result"
+      verbose_name_plural = "Tes Result"
 
   def __str__(self):
     return str(self.pk)

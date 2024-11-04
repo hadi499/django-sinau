@@ -7,7 +7,7 @@
 
     {% for tes in tes_all %}
 
-    <a  href="{% url 'sains_detail' tes.pk %}" >
+    <a  href="{% url 'tes_detail' tes.pk %}" >
       <div class="border border-blue-600 text-sm font-semibold px-2 py-2 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white w-full text-center mb-3">{{ tes.name }} - {{ tes.topic }}</div>
     </a>
    

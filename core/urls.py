@@ -14,8 +14,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),   
     path('login/', CustomLoginView.as_view(), name='login'),
     path('book/', include('book.urls')),
-    path('quiz/', include('quiz.urls')),
-    path('sains/', include('sains.urls')),
+    path('quiz/', include('quiz.urls')),   
+    path('tes/', include('tesApp.urls')),   
     path('pertanyaan/', include('pertanyaan.urls')),
     path('posts/', include('blog.urls')),
 ]

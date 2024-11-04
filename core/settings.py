@@ -28,11 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_ckeditor_5',
     'book',
-    'quiz',
-    'sains',
+    'quiz', 
     'pertanyaan',
     'blog',
-    
+    'tesApp',    
     
 ]
 

@@ -1,28 +1,28 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
-from . models import Tes, QuestionSains, ResultSains
+from . models import Tes, QuestionTes, ResultTes
 
-def sains_list(request):
+def tes_list(request):
   tes_all = Tes.objects.all()
-  return render(request, 'sains/list.html', {'tes_all': tes_all})
+  return render(request, 'tes/list.html', {'tes_all': tes_all})
 
 
 @login_required
-def sains_detail(request, pk):
+def tes_detail(request, pk):
     tes = get_object_or_404(Tes, pk=pk)
-    return render(request, 'sains/detail.html', {'tes': tes})
+    return render(request, 'tes/detail.html', {'tes': tes})
 
 @login_required
-def sains_take(request, pk):
+def tes_take(request, pk):
     tes = get_object_or_404(Tes, pk=pk)
     questions = tes.get_questions()
     print(questions)
-    return render(request, 'sains/take.html', {'tes': tes, 'questions': questions})
+    return render(request, 'tes/take.html', {'tes': tes, 'questions': questions})
 
 # Submit the tes and calculate score
 @login_required
-def sains_submit(request, pk):
+def tes_submit(request, pk):
     if request.method == "POST":
         # Get the quiz by primary key (pk)
         tes = get_object_or_404(Tes, pk=pk)
@@ -60,12 +60,12 @@ def sains_submit(request, pk):
         score = (correct_answers / total_questions) * 100
 
         # Save the result to the Result model
-        result = ResultSains.objects.create(tes=tes, user=request.user, score=score)
+        result = ResultTes.objects.create(tes=tes, user=request.user, score=score)
         
         # Determine if the user passed
         passed = score >= tes.required_score_to_pass
 
-        return render(request, 'sains/sains_result.html', {
+        return render(request, 'tes/tes_result.html', {
             'tes': tes,
             'score': score,
             'passed': passed,
@@ -73,15 +73,15 @@ def sains_submit(request, pk):
             'correct_answers': correct_answers,
             'question_details': question_details  # Pass question details to the template
         })
-    return redirect('tes_sains_list')
+    return redirect('tes_list')
 
 @login_required
-def scores_sains(request):  
+def scores_tes(request):  
   user_id = request.user.id  
-  results = ResultSains.objects.filter(user_id=user_id).order_by('-created')   
-  return render(request, 'sains/results.html', {'results': results})
+  results = ResultTes.objects.filter(user_id=user_id).order_by('-created')   
+  return render(request, 'tes/results.html', {'results': results})
 
 
-def result_sains_all(request):
-    all_results = ResultSains.objects.all().order_by('-id')
-    return render(request, 'sains/all_sains_results.html', {'all_results': all_results})
+def result_tes_all(request):
+    all_results = ResultTes.objects.all().order_by('-id')
+    return render(request, 'tes/all_tes_results.html', {'all_results': all_results})

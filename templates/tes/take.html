@@ -14,7 +14,7 @@
     </div>
     
 
-    <form id="tes-form"  method="POST" action="{% url 'sains_submit' tes.pk %}">
+    <form id="tes-form"  method="POST" action="{% url 'tes_submit' tes.pk %}">
       {% csrf_token %}
       <div class="text-2xl text-center font-semibold my-6">{{ tes.name }}</div>
       <div class="text-xl font-semibold my-4">{{ tes.command }}</div>
@@ -37,7 +37,7 @@
 
       </div>
       <div class="flex justify-between mb-8">
-        <a href="{% url 'sains_detail' tes.pk %}"  class="border border-slate-700 text-sm font-semibold px-2 py-1 rounded-sm text-slate-700 hover:bg-slate-700 hover:text-white">back</a>
+        <a href="{% url 'tes_detail' tes.pk %}"  class="border border-slate-700 text-sm font-semibold px-2 py-1 rounded-sm text-slate-700 hover:bg-slate-700 hover:text-white">back</a>
         <button type="submit" class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white">Submit</button>
 
       </div>
