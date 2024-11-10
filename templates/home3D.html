@@ -1,0 +1,42 @@
+{% extends "layout_3d.html" %}
+{% load static %}
+
+{% block title %}
+{{ block.super }} - home
+{% endblock title %}
+
+{% block content %}
+<div class="banner">
+  <div class="slider" style="--quantity: 10">
+    
+    <div class="item" style="--position: 1"><img src="{% static "images/boruto1.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 2"><img src="{% static "images/boruto2.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 3"><img src="{% static "images/picachu.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 4"><img src="{% static "images/boruto4.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 5"><img src="{% static "images/boruto5.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 6"><img src="{% static "images/boruto6.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 7"><img src="{% static "images/conan1.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 8"><img src="{% static "images/conan2.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 9"><img src="{% static "images/conan3.jpg" %}" alt=""></div>
+    <div class="item" style="--position: 10"><img src="{% static "images/conan4.jpg" %}" alt=""></div>
+  </div>
+  <div class="content">
+    <h1 data-content="SINAU APP">
+      SINAU APP
+    </h1>
+    <div class="author z-50">
+      <a href="{% url "posts" %}" ><h2>Blog</h2></a>
+      <a href="{% url "book_list" %}"><h2>Books</h2></a>
+      <a href="{% url "quiz_list" %}"><h2>Quiz</h2></a>
+      <a href="{% url "tes_list" %}"><h2>Test</h2></a>
+   
+    
+    
+      
+    </div>
+    <div class="model"></div>
+  </div>
+</div>
+
+
+{% endblock content %}

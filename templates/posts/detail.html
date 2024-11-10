@@ -11,13 +11,7 @@
 
 
   <div class="w-full md:max-w-3xl">
-      <div>    
-        <div id="top" class="mb-12 flex justify-end">
-          <a class="border border-blue-600 text-sm font-semibold px-2 py-1 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white" href="{% url 'posts' %}">post lists</a>
-         
-        
-        </div> 
-      
+     
       
         <div class="border border-2 p-4 border-amber-100  bg-amber-50 mb-8">
             
@@ -57,6 +51,21 @@
             
 
           
+        </div>
+        <div class="flex  justify-center">
+          <div class="w-full md:w-[300px]">
+  
+            <a  href="{% url "posts" %}" >
+              <div class="border border-blue-600 text-sm font-semibold px-2 py-2 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white w-full text-center mb-3">Post Lists</div>
+            </a>
+            <a  href="{% url "quiz_list" %}" >
+              <div class="border border-blue-600 text-sm font-semibold px-2 py-2 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white w-full text-center mb-3">Quiz</div>
+            </a>
+            <a  href="{% url "tes_list" %}" >
+              <div class="border border-blue-600 text-sm font-semibold px-2 py-2 rounded-sm text-blue-600 hover:bg-blue-600 hover:text-white w-full text-center mb-3">Tes</div>
+            </a>
+          </div>
+
         </div>
 
       </div>

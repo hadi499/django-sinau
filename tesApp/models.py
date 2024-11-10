@@ -43,4 +43,4 @@ class ResultTes(models.Model):
       verbose_name_plural = "Tes Result"
 
   def __str__(self):
-    return str(self.pk)
+    return str(self.user.username)

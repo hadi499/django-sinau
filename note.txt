@@ -1,0 +1,24 @@
+----cara export file ke model dengan json----------
+python manage.py shell
+
+
+import json
+from tesApp.models import QuestionTes, Tes  # ganti your_app dengan nama aplikasi Anda
+
+# Baca file JSON
+with open('questions.json', 'r') as file:
+    questions_data = json.load(file)
+
+# Import data
+for question in questions_data:
+    tes_obj = Tes.objects.get(id=question['tes'])
+    QuestionTes.objects.create(
+        tes=tes_obj,
+        title=question['title'],
+        option_a=question['option_a'],
+        option_b=question['option_b'],
+        option_c=question['option_c'],
+        correct_answer=question['correct_answer']
+    )
+
+print("Data berhasil diimpor!")

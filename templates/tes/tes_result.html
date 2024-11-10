@@ -44,7 +44,35 @@
   
 
  
-   
+<script>
+  // Mencegah form resubmission
+  if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+  }
+
+  // Fungsi untuk redirect ke tes_list
+  function redirectToTesList() {
+      window.location.href = "{% url 'tes_list' %}";
+  }
+
+  // Deteksi reload page
+  if (performance.navigation.type === 1) {
+      redirectToTesList();
+  }
+
+  // Menangani keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+      if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+          e.preventDefault();
+          redirectToTesList();
+      }
+  });
+
+  // Menangani browser reload button
+  window.addEventListener('beforeunload', function(e) {
+      redirectToTesList();
+  });
+</script>
 
 
  
